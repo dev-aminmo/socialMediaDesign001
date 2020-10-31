@@ -123,63 +123,71 @@ class Screens extends StatelessWidget {
               ),
         ),
       ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: Container(
+        margin: EdgeInsets.all(10),
+        child: ListView(children: [
+          Column(
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                      height: 52,
-                      width: 52,
-                      child: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            'https://source.unsplash.com/random?sig=0'),
-                      )),
-                  SizedBox(
-                    width: 16,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Row(
                     children: [
-                      Text("Giorgio Armani",
-                          style: TextStyle(
-                              color: Color(0xffcacaca),
-                              fontSize: 18,
-                              letterSpacing: 0.8)),
-                      Text(
-                        "New York, United States",
-                        style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey,
-                            letterSpacing: 0.6),
+                      Container(
+                          height: 52,
+                          width: 52,
+                          child: CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                'https://source.unsplash.com/random?sig=0'),
+                          )),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Giorgio Armani",
+                              style: TextStyle(
+                                  color: Color(0xffcacaca),
+                                  fontSize: 18,
+                                  letterSpacing: 0.8)),
+                          Text(
+                            "New York, United States",
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey,
+                                letterSpacing: 0.6),
+                          )
+                        ],
                       )
                     ],
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      Icons.more_vert,
+                      color: Color(0xffcacaca),
+                    ),
+                    onPressed: () {},
                   )
                 ],
               ),
-              IconButton(
-                icon: Icon(
-                  Icons.more_vert,
-                  color: Color(0xffcacaca),
+              SizedBox(
+                height: 8,
+              ),
+              Container(
+                height: 420,
+                width: double.infinity,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(26)),
+                  child: Image.network(
+                    "https://source.unsplash.com/1080x1920",
+                    fit: BoxFit.cover,
+                  ),
                 ),
-                onPressed: () {},
               )
             ],
           ),
-          SizedBox(
-            height: 8,
-          ),
-          Container(
-            height: 400,
-            width: double.infinity,
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(26)),
-              child: Image.network("https://source.unsplash.com/1000x1000"),
-            ),
-          )
-        ],
+        ]),
       ),
     );
   }
