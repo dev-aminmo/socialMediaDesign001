@@ -83,54 +83,103 @@ class Screens extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
               )
               /*ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  SizedBox(
-                    width: 20,
-                  ),
-                  /* Container(
-                    height: 70,
-                    width: 70,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(70),
-                      child: Image.network(
-                          "https://scontent-mrs2-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/91162742_170679870615049_"
-                          "6770090787187134370_n.jpg?_nc_ht=scontent-mrs2-2.cdninstagram.com&_nc_cat=101&_nc_ohc=uvH4bOIwB_4AX-qoUfe&_nc_tp=25&oh=03ce7c47d5a0d83b7df0b2bc803bb693&oe=5FC5ED52"),
-                    ),
-                  )*/
-                  Column(
+                    scrollDirection: Axis.horizontal,
                     children: [
-                      Container(
-                        height: 52,
-                        width: 52,
-                        child: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              'https://scontent-mrs2-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/91162742_170679870615049_6770090787187134370_n.jpg?_nc_ht=scontent-mrs2-2.cdninstagram.com&_nc_cat=101&_nc_ohc=uvH4bOIwB_4AX-qoUfe&_nc_tp=25&oh=03ce7c47d5a0d83b7df0b2bc803bb693&oe=5FC5ED52'),
-                        ),
-                      ),
                       SizedBox(
-                        height: 10,
+                        width: 20,
                       ),
-                      Text(
-                        "Deco",
-                        style: TextStyle(color: Color(0xffcacaca), fontSize: 16),
+                      /* Container(
+                        height: 70,
+                        width: 70,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(70),
+                          child: Image.network(
+                              "https://scontent-mrs2-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/91162742_170679870615049_"
+                              "6770090787187134370_n.jpg?_nc_ht=scontent-mrs2-2.cdninstagram.com&_nc_cat=101&_nc_ohc=uvH4bOIwB_4AX-qoUfe&_nc_tp=25&oh=03ce7c47d5a0d83b7df0b2bc803bb693&oe=5FC5ED52"),
+                        ),
+                      )*/
+                      Column(
+                        children: [
+                          Container(
+                            height: 52,
+                            width: 52,
+                            child: CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                  'https://scontent-mrs2-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/p640x640/91162742_170679870615049_6770090787187134370_n.jpg?_nc_ht=scontent-mrs2-2.cdninstagram.com&_nc_cat=101&_nc_ohc=uvH4bOIwB_4AX-qoUfe&_nc_tp=25&oh=03ce7c47d5a0d83b7df0b2bc803bb693&oe=5FC5ED52'),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Deco",
+                            style: TextStyle(color: Color(0xffcacaca), fontSize: 16),
+                          )
+                        ],
                       )
                     ],
-                  )
-                ],
-              ),*/
+                  ),*/
 
               ),
         ),
       ),
-      body: Container(
-        height: 48,
-        width: 48,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(24),
-          child: Image.network(
-              "https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"),
-        ),
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Container(
+                      height: 52,
+                      width: 52,
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            'https://source.unsplash.com/random?sig=0'),
+                      )),
+                  SizedBox(
+                    width: 16,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Giorgio Armani",
+                          style: TextStyle(
+                              color: Color(0xffcacaca),
+                              fontSize: 18,
+                              letterSpacing: 0.8)),
+                      Text(
+                        "New York, United States",
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey,
+                            letterSpacing: 0.6),
+                      )
+                    ],
+                  )
+                ],
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.more_vert,
+                  color: Color(0xffcacaca),
+                ),
+                onPressed: () {},
+              )
+            ],
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          Container(
+            height: 400,
+            width: double.infinity,
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(26)),
+              child: Image.network("https://source.unsplash.com/1000x1000"),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -144,6 +193,7 @@ class MyApp extends StatelessWidget {
       title: 'Design 001',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.black,
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
@@ -176,11 +226,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: children[_currentIndex],
-      ),
+      backgroundColor: Colors.black,
+      body: children[_currentIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: SizedBox(
         width: 58,
@@ -194,8 +241,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-
       bottomNavigationBar: BottomAppBar(
+        color: Colors.black,
         shape: CircularNotchedRectangle(),
         notchMargin: 4,
         clipBehavior: Clip.antiAlias,
@@ -243,7 +290,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
